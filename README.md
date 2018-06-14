@@ -43,7 +43,7 @@ A docker image to run Anaconda and other popular libraries for machine learning
 4. Restarting Nvidia-docker
 <br/>```sudo systemctl restart nvidia-docker```
 4. Running the Docker Container
-<br/>```sudo nvidia-docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder riverar_docker_tfgpu_conda:latest bash```
+<br/>```sudo nvidia-docker run -it -p 8887:8887 -p 6006:6006 -v /sharedfolder:/root/sharedfolder riverar_docker_tfgpu_conda:latest bash```
 
 ### Running Jupyter notebook
 **```jupyter notebook --allow-root```**
