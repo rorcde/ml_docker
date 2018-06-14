@@ -5,8 +5,8 @@ MAINTAINER Rodrigo Rivera <rodrigo.riveracastro@skoltech.ru>
 ARG PIP=/root/anaconda3/bin/pip
 
 # Install some dependencies
-RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E1DD270288B4E6030699E45FA1715D88E1DF1F24
-RUN sudo su -c "echo 'deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty xenial' > /etc/apt/sources.list.d/git.list"
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E1DD270288B4E6030699E45FA1715D88E1DF1F24
+RUN su -c "echo 'deb http://ppa.launchpad.net/git-core/ppa/ubuntu trusty xenial' > /etc/apt/sources.list.d/git.list"
 RUN apt-get update && apt-get install -y \
 		git -y \
 		qt5-default -y \
@@ -74,8 +74,8 @@ COPY jupyter_notebook_config.py /root/.jupyter/
 # Jupyter has issues with being run directly: https://github.com/ipython/ipython/issues/7062
 COPY run_jupyter.sh /root/
 
-# Expose Ports for TensorBoard (6006), Ipython (8888)
-EXPOSE 6006 8888
+# Expose Ports for TensorBoard (6006), Ipython (8887)
+EXPOSE 6006 8887
 
 WORKDIR "/root"
 CMD ["/bin/bash"]
