@@ -26,7 +26,7 @@ A docker image to run Anaconda and other popular libraries for machine learning
     * Installing Docker on Ubuntu 16.04 or above:
     <br/>```sudo bash install_docker/docker_install1604.sh```
 2. Building Docker Image: 
-<br/>```sudo docker build -t riverar_docker_tfgpu_conda -f Dockerfile.cpu .```
+<br/>```sudo docker build -t riverar_docker_tfgpu_conda -f dockerfile.cpu .```
 3. Running the Docker Container 
 <br/>```sudo docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder riverar_docker_tfgpu_conda:latest bash``` 
 
@@ -37,9 +37,9 @@ A docker image to run Anaconda and other popular libraries for machine learning
     * Installing Docker on Ubuntu 16.04 or above:
     <br/>```sudo bash install_docker/docker_install1604.sh```
 2. Installing NVIDIA-Docker
-<br/>```sudo bash nvidia-docker.sh```
+<br/>```sudo bash nvidia_docker.sh```
 3. Building Docker Image
-<br/>```sudo docker build -t riverar_docker_tfgpu_conda -f Dockerfile.gpu .```
+<br/>```sudo docker build -t riverar_docker_tfgpu_conda -f dockerfile.gpu .```
 4. Restarting Nvidia-docker
 <br/>```sudo systemctl restart nvidia-docker```
 4. Running the Docker Container
