@@ -3,6 +3,7 @@ FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 MAINTAINER Rodrigo Rivera <rodrigo.riveracastro@skoltech.ru>
 
 ARG PIP=/root/anaconda3/bin/pip
+ARG CONDA=/root/anaconda3/bin/conda
 
 # Install some dependencies
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E1DD270288B4E6030699E45FA1715D88E1DF1F24
@@ -68,6 +69,17 @@ RUN ${PIP} --no-cache-dir install keras
 #	ldconfig && \
 #	echo 'ln /dev/null /dev/raw1394' >> ~/.bashrc
 
+RUN ${CONDA} install --yes --quiet msgpack-python
+
+RUN ${PIP} --no-cache-dir install pyflux
+
+RUN ${CONDA} install --yes --quiet -c conda-forge pymc3
+
+# Downlod GPflow
+RUN git clone --depth 1 https://github.com/GPflow/GPflow.git /root/GPflow
+WORKDIR "/root/GPflow"
+RUN ${PIP} --no-cache-dir install .
+
 #Setup notebook config
 COPY jupyter_notebook_config.py /root/.jupyter/
 
@@ -79,3 +91,14 @@ EXPOSE 6006 8887
 
 WORKDIR "/root"
 CMD ["/bin/bash"]
+
+
+# Downlod GPflow
+# RUN git clone https://github.com/GPflow/GPflow.git
+# ADD /GPflow /GPflow
+#WORKDIR "/GPflow"
+#RUN ${PIP} --no-cache-dir install .
+
+
+# WORKDIR "/root"
+# CMD ["/bin/bash"]
