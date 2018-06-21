@@ -57,6 +57,11 @@ A docker image to run Anaconda and other popular libraries for machine learning
 <br/>```sudo docker rmi $(sudo docker images -a -q)```
 
 
+3. You can restart an existing container after it exited and your changes are still there.
+
+<br/> '''docker start  `docker ps -q -l` # restart it in the background'''
+<br/> '''docker attach `docker ps -q -l` # reattach the terminal & stdin'''
+
 ##### Issues
 **If there is any issue, please feel free to open an issue**
 

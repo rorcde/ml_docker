@@ -92,13 +92,3 @@ EXPOSE 6006 8887
 WORKDIR "/root"
 CMD ["/bin/bash"]
 
-
-# Downlod GPflow
-# RUN git clone https://github.com/GPflow/GPflow.git
-# ADD /GPflow /GPflow
-#WORKDIR "/GPflow"
-#RUN ${PIP} --no-cache-dir install .
-
-
-# WORKDIR "/root"
-# CMD ["/bin/bash"]
