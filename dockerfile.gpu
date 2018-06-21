@@ -4,12 +4,16 @@ MAINTAINER Rodrigo Rivera <rodrigo.riveracastro@skoltech.ru>
 
 ARG PIP=/root/anaconda3/bin/pip
 ARG CONDA=/root/anaconda3/bin/conda
+ARG ssh_prv_key
+ARG ssh_pub_key
 
 # Install some dependencies
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E1DD270288B4E6030699E45FA1715D88E1DF1F24
 RUN su -c "echo 'deb http://ppa.launchpad.net/git-core/ppa/ubuntu xenial main' > /etc/apt/sources.list.d/git.list"
 RUN apt-get update && apt-get install -y \
 		git -y \
+                openssh-server \
+                libmysqlclient-dev \
 		qt5-default -y \
                 build-essential \
                 cmake \
@@ -28,6 +32,17 @@ RUN apt-get update && apt-get install -y \
         apt-get clean && \
         apt-get autoremove && \
         rm -rf /var/lib/apt/lists/*
+
+# Authorize SSH Host
+RUN mkdir -p /root/.ssh && \
+    chmod 0700 /root/.ssh && \
+    ssh-keyscan github.com > /root/.ssh/known_hosts
+
+# Add the keys and set permissions
+RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
+    echo "$ssh_pub_key" > /root/.ssh/id_rsa.pub && \
+    chmod 600 /root/.ssh/id_rsa && \
+    chmod 600 /root/.ssh/id_rsa.pub
 
 #Anaconda
 RUN wget --quiet https://repo.continuum.io/archive/Anaconda3-5.2.0-Linux-x86_64.sh && \
