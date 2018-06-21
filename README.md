@@ -28,7 +28,7 @@ A docker image to run Anaconda and other popular libraries for machine learning
 2. Building Docker Image: 
 <br/>```sudo docker build -t riverar_docker_tfgpu_conda -f dockerfile.cpu .```
 3. Running the Docker Container 
-<br/>```sudo docker run -it -p 8888:8888 -p 6006:6006 -v /sharedfolder:/root/sharedfolder riverar_docker_tfgpu_conda:latest bash``` 
+<br/>```sudo docker run -it -p 8887:8887 -p 6006:6006 -v ~/sharedfolder:/root/sharedfolder riverar_docker_tfgpu_conda:latest bash``` 
 
 ### GPU
 1. Installing Docker
