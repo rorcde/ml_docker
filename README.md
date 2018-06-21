@@ -49,7 +49,7 @@ A docker image to run Anaconda and other popular libraries for machine learning
 ### Running Jupyter notebook
 **```jupyter notebook --allow-root```**
 
-*Note*: You can remove __```-v /sharedfolder:/root/sharedfolder```__ from CPU as well as GPU if you're running the container on cloud. This command is to just link your local files on the container.
+*Note*: You can remove __```-v ~/sharedfolder:/root/sharedfolder```__ from CPU as well as GPU if you're running the container on cloud. This command is to just link your local files on the container.
 
 ### Some Handy commands
 1. Removing all containers
