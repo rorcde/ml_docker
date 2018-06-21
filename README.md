@@ -40,11 +40,11 @@ A docker image to run Anaconda and other popular libraries for machine learning
 <br/>```sudo bash nvidia_docker.sh```
 3. Building Docker Image
 <br/>```sudo docker build -t riverar_docker_tfgpu_conda -f dockerfile.gpu .```
-<br/>```docker build -t riverar_docker_tfgpu_conda -f dockerfile.gpu --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --squash .```
+<br/>```docker build -t riverar_docker_tfgpu_conda -f dockerfile.gpu --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" .```
 4. Restarting Nvidia-docker
 <br/>```sudo systemctl restart nvidia-docker```
 4. Running the Docker Container
-<br/>```sudo nvidia-docker run -it -p 8887:8887 -p 6006:6006 -v /sharedfolder:/root/sharedfolder riverar_docker_tfgpu_conda:latest bash```
+<br/>```sudo nvidia-docker run -it -p 8887:8887 -p 6006:6006 -v ~/sharedfolder:/root/sharedfolder riverar_docker_tfgpu_conda:latest bash```
 
 ### Running Jupyter notebook
 **```jupyter notebook --allow-root```**
