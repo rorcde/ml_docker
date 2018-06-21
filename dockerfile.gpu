@@ -90,6 +90,10 @@ RUN ${PIP} --no-cache-dir install pyflux
 
 RUN ${CONDA} install --yes --quiet -c conda-forge pymc3
 
+RUN ${PIP} --no-cache-dir install kshape
+
+RUN ${CONDA} install --yes --quiet -c conda-forge jupyterlab
+
 # Downlod GPflow
 RUN git clone --depth 1 https://github.com/GPflow/GPflow.git /root/GPflow
 WORKDIR "/root/GPflow"
