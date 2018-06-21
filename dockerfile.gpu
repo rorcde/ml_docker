@@ -96,6 +96,8 @@ RUN ${CONDA} install --yes --quiet -c conda-forge jupyterlab
 
 RUN ${PIP} --no-cache-dir install tsfresh
 
+RUN ${PIP} --no-cache-dir install gpy
+
 # Downlod GPflow
 RUN git clone --depth 1 https://github.com/GPflow/GPflow.git /root/GPflow
 WORKDIR "/root/GPflow"
