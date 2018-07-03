@@ -100,7 +100,9 @@ RUN ${PIP} --no-cache-dir install gpy
 
 RUN ${PIP} --no-cache-dir install cookiecutter
 
-RUN ${PIP} --no-cache-dir install POT
+RUN ${CONDA} install --yes --quiet -c conda-forge pot
+
+RUN ${CONDA} install --yes --quiet -c conda-forge catboost
 
 # Downlod GPflow
 RUN git clone --depth 1 https://github.com/GPflow/GPflow.git /root/GPflow
