@@ -84,7 +84,7 @@ RUN ${PIP} --no-cache-dir install keras
 #	ldconfig && \
 #	echo 'ln /dev/null /dev/raw1394' >> ~/.bashrc
 
-RUN ${CONDA} install --yes --quiet msgpack-python
+RUN ${PIP} --no-cache-dir install msgpack
 
 RUN ${PIP} --no-cache-dir install pyflux
 
@@ -97,6 +97,10 @@ RUN ${CONDA} install --yes --quiet -c conda-forge jupyterlab
 RUN ${PIP} --no-cache-dir install tsfresh
 
 RUN ${PIP} --no-cache-dir install gpy
+
+RUN ${PIP} --no-cache-dir install cookiecutter
+
+RUN ${PIP} --no-cache-dir install POT
 
 # Downlod GPflow
 RUN git clone --depth 1 https://github.com/GPflow/GPflow.git /root/GPflow
