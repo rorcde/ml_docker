@@ -104,6 +104,12 @@ RUN ${CONDA} install --yes --quiet -c conda-forge pot
 
 RUN ${CONDA} install --yes --quiet -c conda-forge catboost
 
+RUN ${PIP} --no-cache-dir install python-dotenv
+
+RUN ${PIP} --no-cache-dir install xgboost
+
+RUN ${PIP} --no-cache-dir install pyramid-arima
+
 # Downlod GPflow
 RUN git clone --depth 1 https://github.com/GPflow/GPflow.git /root/GPflow
 WORKDIR "/root/GPflow"
